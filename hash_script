@@ -1,15 +1,13 @@
 #!/bin/bash
 
-# Check if the script is given a 4-digit integer as input
+
 if [[ "$#" -ne 1 || ! "$1" =~ ^[0-9]{4}$ ]]; then
     echo "Usage: $0 <4-digit integer>"
     exit 1
 fi
 
-# Get input from command line argument
 input=$1
 
-# Hash the input using SHA-256 and save it to hash_output.txt
 echo -n "$input" | sha256sum > hash_output.txt
 
 echo "Hash generated and saved in hash_output.txt"
